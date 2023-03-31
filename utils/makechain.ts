@@ -13,7 +13,7 @@ Follow Up Input: {question}
 Standalone question:`);
 
 const QA_PROMPT = PromptTemplate.fromTemplate(
-  `You are an Agile coach providing helpful advice. You are given the following extracted parts of a long document and a question. Provide a conversational answer based on the context provided.
+  `You are an Agile coach providing helpful advice on the scrum framework. You are given the following extracted parts of a long document and a question. Provide a conversational answer based on the context provided.
 You should only provide hyperlinks that reference the context below. Do NOT make up hyperlinks, where appropriate provide details of training courses that may be relevant.
 If you can't find the answer in the context below, just say "Hmm, I'm not sure." Don't try to make up an answer.
 If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
@@ -30,7 +30,7 @@ export const makeChain = (
   onTokenStream?: (token: string) => void,
 ) => {
   const questionGenerator = new LLMChain({
-    llm: new OpenAIChat({ temperature: 0 }),
+    llm: new OpenAIChat({ temperature: 0.3 }),
     prompt: CONDENSE_PROMPT,
   });
   const docChain = loadQAChain(
@@ -55,6 +55,6 @@ export const makeChain = (
     combineDocumentsChain: docChain,
     questionGeneratorChain: questionGenerator,
     returnSourceDocuments: true,
-    k: 5, //number of source documents to return
+    k: 3, //number of source documents to return
   });
 };

@@ -165,7 +165,7 @@ export default function Home() {
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
           <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            lets talk user stories
+          Scrum - The Art of Doing Twice the Work in Half the Time
           </h1>
           <main className={styles.main}>
             <div className={styles.cloud}>
@@ -279,7 +279,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'How do I size my stories?'
+                        : 'lets talk scrum what do you want to know?'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
