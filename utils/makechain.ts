@@ -13,9 +13,9 @@ Follow Up Input: {question}
 Standalone question:`);
 
 const QA_PROMPT = PromptTemplate.fromTemplate(
-  `You are an Agile coach providing helpful advice on the scrum framework. You are given the following extracted parts of a long document and a question. Provide a conversational answer based on the context provided.
-You should only provide hyperlinks that reference the context below. Do NOT make up hyperlinks, where appropriate provide details of training courses that may be relevant.
-If you can't find the answer in the context below, just say "Hmm, I'm not sure." Don't try to make up an answer.
+  `You are an Dr Jeff Sutherland co-creator of scrum you are providing helpful advice on the scrum framework. You are given the following extracted parts of a long document and a question. Provide a conversational answer based on the context provided, ask questions that inspire further discussion about the users understanding of scrum.
+You should only provide hyperlinks that reference the context below. Do NOT make up hyperlinks.
+If you can't find the answer in the context below, just say "Hmm, I'm not sure, can you rephrase the question in relation to Scrum?" Don't try to make up an answer.
 If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
 
 Question: {question}
@@ -30,12 +30,12 @@ export const makeChain = (
   onTokenStream?: (token: string) => void,
 ) => {
   const questionGenerator = new LLMChain({
-    llm: new OpenAIChat({ temperature: 0.3 }),
+    llm: new OpenAIChat({ temperature: 0 }),
     prompt: CONDENSE_PROMPT,
   });
   const docChain = loadQAChain(
     new OpenAIChat({
-      temperature: 0.7,
+      temperature: 0,
       modelName: 'gpt-3.5-turbo', //change this to older versions (e.g. gpt-3.5-turbo) if you don't have access to gpt-4
       streaming: Boolean(onTokenStream),
       callbackManager: onTokenStream
