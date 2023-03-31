@@ -27,7 +27,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi, How can I help?',
+        message: 'I know Scrum, how can I help?',
         type: 'apiMessage',
       },
     ],
