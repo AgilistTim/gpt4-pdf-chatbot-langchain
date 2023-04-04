@@ -6,7 +6,7 @@ import { PDFLoader } from 'langchain/document_loaders';
 import { PINECONE_INDEX_NAME, PINECONE_NAME_SPACE } from '@/config/pinecone';
 
 /* Name of directory to retrieve files from. You can change this as required */
-const filePath = 'docs/Scrum - The Art of Doing Twice the Work in Half the Time_ layers.pdf';
+const filePath = 'docs/SAFe 6.0_layers.pdf';
 
 export const run = async () => {
   try {
