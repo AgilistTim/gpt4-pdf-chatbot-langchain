@@ -165,7 +165,7 @@ export default function Home() {
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
           <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-          SAFe body of knowledge
+          Ask Alistair
           </h1>
           <main className={styles.main}>
             <div className={styles.cloud}>
@@ -279,7 +279,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'lets talk SAFe what do you want to know?'
+                        : 'lets talk what do you want to know?'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
